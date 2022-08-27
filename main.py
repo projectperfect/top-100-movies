@@ -13,6 +13,11 @@ all_movies = soup.find_all(name="h3", class_="title")
 print(all_movies)
 #[item for item in item_list]
 movie_titles = [movie.getText() for movie in all_movies]
-print(movie_titles)
+# reverse the order of the list (python splice)
+movies = movie_titles[::-1]
+
+with open("movies.txt", mode="w") as file:
+    for movie in movies:
+        file.write(f"{movie}\n")
 
 
